@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록 작성</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f8ff; /* 연한 배경색 */
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cute-button {
+            background-color: #ffca1a; 
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        .cute-button:hover {
+            background-color: hsla(19, 100%, 54%, 0.708); 
+        }
+    </style>
+</head>
+<body>
+    <div class="container form-container">
+        <h1 class="text-center">방명록 작성</h1>
+        <form action="/api/guestbook" method="POST">
+            <div class="form-group">
+                <label for="name">이름:</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="message">메시지:</label>
+                <textarea name="message" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="cute-button">등록</button>
+        </form>
+        <a href="/guestbook/list" class="cute-button">방명록 목록 보기</a>
+    </div>
+</body>
+</html>

@@ -1,147 +1,129 @@
-<%-include('layouts/header.ejs')%>
+<%- include('layouts/header.ejs') %>
 
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
   <div class="row">
-    <div class="col-sm-8"><img src="img/avatar.png" width="100" height="100">
-      <h2>About Me</h2><br>
-      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <button class="btn btn-default btn-lg">Get in Profile</button>
+    <div class="col-sm-8">
+      <img src="img/avatar.png" width="100" height="100" class="img-circle">
+      <h2>서윤선을 소개합니다</h2>
+      <h4>소프트웨어융합학과 3학년입니다.</h4>
+      <p>이번 겨울 방학부터 메타버스 수업을 들어요...</p>
+      <a href="https://blog.naver.com/rarakelly03" class="btn btn-primary btn-lg" target="_blank">블로그 바로가기</a>    
     </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-signal logo"></span>
+    <div class="col-sm-4"> 
+      <span class="glyphicon glyphicon-signal logo"></span> 
     </div>
   </div>
 </div>
 
-<div id="value" class="container-fluid bg-grey">
+<div id="value" class="container-fluid bg-light">
   <div class="row">
     <div class="col-sm-4">
-      <span class="glyphicon glyphicon-globe logo slideanim"></span>
+      <span class="glyphicon glyphicon-globe logo-small slideanim"></span>
     </div>
     <div class="col-sm-8">
-      <h2>My Values</h2><br>
-      <h4><strong>MISSION:</strong> My mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-      <p><strong>VISION:</strong> My vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h2>My Values</h2>
+      <h4><strong>MISSION:</strong> 나의 미션은 지속적인 성장입니다.</h4>
+      <p><strong>VISION:</strong> 나의 비전은 긍정적인 변화를 만드는 것입니다.</p>
     </div>
   </div>
 </div>
 
 <!-- Container (Strengths Section) -->
-<div id="strength" class="container-fluid text-center">
-  <h2>STRENGTH</h2>
-  <h4>What I am good at</h4>
-  <br>
+<div id="strength" class="container-fluid text-center bg-light">
+  <h2>강점</h2>
+  <h4>제가 잘하는 것들입니다..</h4>
   <div class="row slideanim">
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-off logo-small"></span>
-      <h4>POWER</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
+      <h4>힘</h4>
+      <p>!!주 2회 PT!!</p>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-heart logo-small"></span>
-      <h4>LOVE</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
+      <h4>열정</h4>
+      <p>끊임없는 열정으로! </p>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-lock logo-small"></span>
-      <h4>JOB DONE</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-  </div>
-  <br><br>
-  <div class="row slideanim">
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-leaf logo-small"></span>
-      <h4>GREEN</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-certificate logo-small"></span>
-      <h4>CERTIFIED</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-wrench logo-small"></span>
-      <h4 style="color:#303030;">HARD WORK</h4>
-      <p>Lorem ipsum dolor sit amet..</p>
+      <h4>회복 탄력성</h4>
+      <p>일어나서 다시 도전!</p>
     </div>
   </div>
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div id="portfolio" class="container-fluid text-center bg-grey">
-  <h2>Portfolio</h2><br>
-  <h4>What I have created</h4>
+<div id="portfolio" class="container-fluid text-center bg-light">
+  <h2>제가 만든 것을 소개합니다</h2>
+  <h4>저의 프로젝트를 확인해보세요</h4>
   <div class="row text-center slideanim">
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="img/deer-8463729_1280.png" alt="Space" width="400" height="300" object-fit="cover">
-        <p><strong>Space</strong></p>
-        <p>Yes, I built this</p>
+        <img src="img/deer-8463729_1280.png" alt="개인 프로필" style="object-fit: cover;">
+        <p><strong>개인 프로필</strong></p>
+        <p>사진을 추가해 봤어요</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="img/nature-8280318_1280.png" alt="Building" width="400" height="300" object-fit="cover">
-        <p><strong>Building</strong></p>
-        <p>One of my best</p>
+        <img src="img/nature-8280318_1280.png" alt="나의 강점" style="object-fit: cover;">
+        <p><strong>나의 강점</strong></p>
+        <p>글자를 수정해봤어요</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="img/trees-8463651_1280.png" alt="Sky" width="400" height="300" object-fit="cover">
-        <p><strong>Sky</strong></p>
-        <p>It was challenging</p>
+        <img src="img/trees-8463651_1280.png" alt="블로그" style="object-fit: cover;">
+        <p><strong>블로그</strong></p>
+        <p>블로그도 넣어봤어요</p>
       </div>
     </div>
-  </div><br>
-  
-  <h2>What my friends say</h2>
+  </div>
+
+  <h2>친구들의 평가</h2>
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-    <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-
-    <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <h4>"This man is the best. I am so happy with the result!"<br><span>Michael Jordan, NBA player, Chicago Bulls</span></h4>
+        <h4>"최고의 사람입니다! 결과에 매우 만족합니다."<br><span>김민주</span></h4>
       </div>
       <div class="item">
-        <h4>"One word... WOW!!"<br><span>Robert Downey Jr., Iron man, Marvel Universe</span></h4>
+        <h4>"아주 대단해요!!"<br><span>아이언맨</span></h4>
       </div>
       <div class="item">
-        <h4>"Could I... BE any more happy with this guy?"<br><span>Lee Jung-jae, Squid Pro-gamer, Netflix</span></h4>
+        <h4>"이 사람과 함께라서 너무 행복합니다!"<br><span>김민서</span></h4>
       </div>
     </div>
-
-    <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
     </a>
     <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
     </a>
   </div>
 </div>
 
+<!-- 방명록 관련 버튼 추가 -->
+<div class="container text-center">
+  <h2>방명록 기능</h2>
+  <a href="/guestbook"><button class="btn btn-success">방명록 남기기</button></a>
+  <a href="/guestbook/list"><button class="btn btn-info">방명록 목록 보기</button></a>
+</div>
+
+
 <!-- Container (Promise Section) -->
-<div id="promise" class="container-fluid">
+<div id="promise" class="container-fluid bg-light">
   <div class="text-center">
-    <h2>Promise</h2>
-    <h4>I'm going to keep doing these things</h4>
+    <h2>약속</h2>
+    <h4>지속적으로 노력하겠습니다</h4>
   </div>
   <div class="row slideanim">
     <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
+      <div class="panel text-center">
         <div class="panel-heading">
           <h1>TRY</h1>
         </div>
@@ -152,14 +134,13 @@
           <p><strong>Motivating</strong> Challenge</p>
         </div>
         <div class="panel-footer">
-          <h3>Solving problems</h3>
-          <h4>wisely</h4>
-          <!-- <button class="btn btn-lg">Sign Up</button> -->
+          <h3>노력하겠습니다</h3>
+          <h4>될 때까지!!</h4>
         </div>
       </div>      
     </div>     
     <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
+      <div class="panel text-center">
         <div class="panel-heading">
           <h1>TALK</h1>
         </div>
@@ -170,14 +151,13 @@
           <p><strong>Positive</strong> Interaction</p>
         </div>
         <div class="panel-footer">
-          <h3>Be considerate</h3>
-          <h4>in communication</h4>
-          <!-- <button class="btn btn-lg">Sign Up</button> -->
+          <h3>조언을 받아들이겠습니다</h3>
+          <h4>적극적으로!!</h4>
         </div>
       </div>      
     </div>       
     <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
+      <div class="panel text-center">
         <div class="panel-heading">
           <h1>GROWTH</h1>
         </div>
@@ -188,9 +168,8 @@
           <p><strong>Successful</strong> Attempt</p>
         </div>
         <div class="panel-footer">
-          <h3>Become a better me</h3>
-          <h4>than yesterday</h4>
-          <!-- <button class="btn btn-lg">Sign Up</button> -->
+          <h3>성장하겠습니다</h3>
+          <h4>느리더라도 천천히!!</h4>
         </div>
       </div>      
     </div>    
@@ -202,33 +181,11 @@
   <h2 class="text-center">CONTACT</h2>
   <div class="row">
     <div class="col-sm-5">
-      <p>Contact down below and I'll get back to you soon.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Gyeonggi-do, Namyangju</p>
-      <p><span class="glyphicon glyphicon-phone"></span> +082 10-2872-5915</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> citefred@gmail.com</p>
+      <p>아래로 연락주세요. 곧 답변드리겠습니다.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> 경기도 성남시 분당구 분당동</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> rarakelly03@naver.com</p>
     </div>
     <div class="col-sm-7 slideanim">
       <form id="contactForm">
         <div class="row">
-          <div class="col-sm-6 form-group">
-            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-          </div>
-          <div class="col-sm-6 form-group">
-            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-          </div>
-          <div class="col-sm-6 form-group">
-            <input class="form-control" id="phone" name="phone" placeholder="PhoneNumber(Optional)" type="tel">
-          </div>
-        </div>
-        <textarea class="form-control" id="comments" name="memo" placeholder="Comment any notes.." rows="5"></textarea><br>
-        <div class="row">
-          <div class="col-sm-12 form-group">
-            <button class="btn btn-default pull-right" type="button" onclick="createContact()">Send</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<%-include('layouts/footer.ejs')%>
+          <div class="col-sm-6

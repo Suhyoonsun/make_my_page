@@ -3,11 +3,11 @@ const ejs = require('ejs')
 const bodyParser = require('body-parser')
 const mysql = require('mysql2');
 require('dotenv').config();
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
 app.set('view engine', 'ejs');
-app.set('views', './views')
+app.set('views', './views');
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse JSON
@@ -28,6 +28,9 @@ const connectionPool = mysql.createPool({
     insecureAuth: true,
 });
 
+// 방문자 수 카운트
+let visitorCount = 0;
+
 // MySQL connection check
 connectionPool.getConnection((err, connection) => {
     if (err) {
@@ -40,8 +43,9 @@ connectionPool.getConnection((err, connection) => {
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('index');
-})
+    visitorCount++;
+    res.render('index', { visitorCount });
+});
 
 app.get('/blog', (req, res) => {
     res.render('blog');
@@ -58,6 +62,85 @@ app.get('/visit', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render('contact');
 })
+
+// 방명록 작성 페이지
+app.get('/guestbook', (req, res) => {
+    res.render('guestbook'); // guestbook.ejs 파일을 생성하세요.
+});
+
+// 방명록 등록 처리
+app.post('/api/guestbook', (req, res) => {
+    const name = req.body.name;
+    const message = req.body.message;
+
+    const insertQuery = `INSERT INTO guestbook (name, message, created_at) VALUES (?, ?, NOW())`;
+    connectionPool.query(insertQuery, [name, message], (err, result) => {
+        if (err) {
+            console.error('데이터 등록 중 에러 발생:', err);
+            return res.status(500).send('내부 서버 오류');
+        }
+
+        // 성공 메시지 전송
+        res.redirect('/guestbook/list?message=방명록이 등록되었습니다.'); // 메시지를 쿼리 파라미터로 전달
+    });
+});
+
+// 방명록 목록 조회
+app.get('/guestbook/list', (req, res) => {
+    const selectQuery = `SELECT * FROM guestbook ORDER BY created_at DESC`;
+    connectionPool.query(selectQuery, (err, result) => {
+        if (err) {
+            console.error('데이터 조회 중 에러 발생:', err);
+            return res.status(500).send('내부 서버 오류');
+        }
+        res.render('guestbookList', { lists: result }); // guestbookList.ejs 파일을 생성하세요.
+    });
+});
+
+// 방명록 수정 페이지
+app.get('/guestbook/edit/:id', (req, res) => {
+    const id = req.params.id;
+    const selectQuery = `SELECT * FROM guestbook WHERE id = ?`;
+    connectionPool.query(selectQuery, [id], (err, result) => {
+        if (err) {
+            console.error('데이터 조회 중 에러 발생:', err);
+            return res.status(500).send('내부 서버 오류');
+        }
+        res.render('guestbookEdit', { guestbook: result[0] }); // 수정 페이지를 위한 EJS 파일
+    });
+});
+
+// 방명록 수정 처리
+app.post('/api/guestbook/edit/:id', (req, res) => {
+    const id = req.params.id;
+    const name = req.body.name;
+    const message = req.body.message;
+
+    const updateQuery = `UPDATE guestbook SET name = ?, message = ? WHERE id = ?`;
+    connectionPool.query(updateQuery, [name, message, id], (err, result) => {
+        if (err) {
+            console.error('데이터 업데이트 중 에러 발생:', err);
+            return res.status(500).send('내부 서버 오류');
+        }
+        res.redirect('/guestbook/list'); // 수정 후 목록으로 리다이렉트
+    });
+});
+
+
+// 방명록 삭제 처리
+app.post('/api/guestbook/delete/:id', (req, res) => {
+    const id = req.params.id;
+    const deleteQuery = `DELETE FROM guestbook WHERE id = ?`;
+    connectionPool.query(deleteQuery, [id], (err, result) => {
+        if (err) {
+            console.error('데이터 삭제 중 에러 발생:', err);
+            return res.status(500).send('내부 서버 오류');
+        }
+        res.redirect('/guestbook/list'); // 삭제 후 목록으로 리다이렉트
+    });
+});
+
+
 
 app.post('/api/contact', (req, res) => {
     // const { name, phone, email, memo } = req.body; // 구조 분해 + 각 변수 할당
@@ -127,5 +210,5 @@ app.put('/api/contactUpdate/:id', (req, res) => {
 
 // Server listener
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Example app listening on port ${port}`);
+});

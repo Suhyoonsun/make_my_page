@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록 목록</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .guestbook-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+        }
+        .guestbook-header {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .guestbook-message {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .cute-button {
+            background-color: #ff6969b7; /* 핑크 색상 */
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        .cute-button:hover {
+            background-color: #ff1414bc; /* 더 진한 핑크 */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">방명록 목록</h1>
+    <div class="container">
+        <% if (typeof message !== 'undefined') { %>
+            <div class="alert alert-success text-center">
+                <strong><%= message %></strong>
+            </div>
+        <% } %>
+        <% lists.forEach(guest => { %>
+            <div class="guestbook-item">
+                <div class="guestbook-header"><%= guest.name %></div>
+                <div class="guestbook-message"><%= guest.message %></div>
+                <div class="text-right">
+                    <a href="/guestbook/edit/<%= guest.id %>" class="cute-button">수정</a>
+                    <form action="/api/guestbook/delete/<%= guest.id %>" method="POST" style="display:inline;">
+                        <button type="submit" class="cute-button" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <a href="/guestbook" class="cute-button">방명록 남기기</a>
+</body>
+</html>
